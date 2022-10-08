@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
+
+:root {
+    --Scissors-Gradient: hsl(39, 89%, 49%);
+    --Paper-Gradient: hsl(230, 89%, 62%);
+    --Rock-Gradient: hsl(349, 71%, 52%);
+    --cyan: hsl(189, 59%, 53%);
+    --Dark-Text: hsl(229, 25%, 31%);
+    --Score-Text: hsl(229, 64%, 46%);
+    --Header-Outline: hsl(217, 16%, 45%);
+    --Radial-Gradient: -webkit-radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Reem Kufi Ink', sans-serif;
+    color: #fff;
+
+}
+
+body {
+    background: var(--Radial-Gradient) no-repeat;
+    height: 100vh;
+    background-size: 100%;
+    width: 100vw;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    width: 60%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--Header-Outline);
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.score {
+    background-color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.score span {
+    color: var(--Score-Text);
+
+}
+
+.score h2 {
+    font-size: 30px;
+    color: var(--Dark-Text);
+}
+
+.rules-modal {
+    position: absolute;
+    background-color: #fff;
+    padding: 30px;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    filter: drop-shadow(0px 0px 10px rgba(29, 28, 28, 0.911));
+}
+
+#close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.gamezone {
+    margin-top: 40px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    gap: 50px 70px;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rock,
+.paper,
+.scissor,
+.imgContainer {
+    width: 130px;
+    border-radius: 50%;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    border: 15px solid;
+    user-select: none;
+    position: relative;
+    box-shadow: 0px 10px rgb(224, 224, 224) inset;
+}
+
+.rock {
+    border-color: var(--Rock-Gradient);
+}
+
+.scissor {
+    border-color: var(--Scissors-Gradient);
+
+}
+
+.paper {
+    border-color: var(--Paper-Gradient);
+}
+
+#rules-button {
+    position: absolute;
+    right: 10px;
+    bottom: 70px;
+    padding: 5px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 2px solid var(--Header-Outline);
+}
+
+.paper::after,
+.rock::after,
+.scissor::after {
+    content: "";
+    width: 200%;
+    position: absolute;
+    background-color: hsla(238, 48%, 15%, 0.349);
+    height: 20px;
+    z-index: -1;
+
+    transform: rotate(-65deg);
+}
+
+.rock::after {
+    top: -10px;
+    left: 0;
+}
+
+.paper::after {
+    transform: rotate(0);
+    right: 0;
+}
+
+.scissor::after {
+    transform: rotate(65deg);
+    top: 120px !important;
+}
+
+.userSelect,
+.pcSelect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.imgContainer {
+    animation: intro 1s 1;
+}
+
+@keyframes intro {
+    from {
+        transform: rotateY(25deg);
+    }
+
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+.imgContainer {
+    width: 160px;
+    height: 160px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 5px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 2px solid var(--Header-Outline);
+    font-size: 1.6em;
+}
+
+.imgContainer1 {
+    border-color: var(--Rock-Gradient) !important;
+}
+
+.imgContainer0 {
+    border-color: var(--Scissors-Gradient);
+
+}
+
+.imgContainer2 {
+    border-color: var(--Paper-Gradient);
+}
+
+.container {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0 20px;
+}
+
+.alert {
+    padding: 10px;
+    font-size: 1.6em;
+}
+
+.won {
+    box-shadow: 0px 0px 100px 0px rgba(255, 255, 255, 0.178);
+    z-index: -1;
+}
